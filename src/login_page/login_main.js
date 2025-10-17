@@ -8,12 +8,20 @@ export default function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+  
     if (email === "admin@admin" && password === "1234") {
+      localStorage.setItem("user", JSON.stringify({ email, role: "admin" }));
       navigate("/chatting");
-    } else {
+    } 
+    else if (email === "admin1@admin" && password === "1234") {
+      localStorage.setItem("user", JSON.stringify({ email, role: "user" }));
+      navigate("/chatting");
+    } 
+    else {
       alert("로그인 실패!");
     }
   };
+  
 
   return (
     <div
