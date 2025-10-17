@@ -58,7 +58,7 @@ export default function Playground() {
   
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:5050/reset", { method: "POST", headers: { "X-User-Id": USER_ID } });
+      await fetch("http://localhost:5060/reset", { method: "POST", headers: { "X-User-Id": USER_ID } });
     } catch {}
     localStorage.removeItem("token");
     sessionStorage.clear();
@@ -95,7 +95,7 @@ export default function Playground() {
   
     try {
       const payload = { message: text, history: buildPayloadHistory() };
-      const res = await fetchWithTimeout("http://localhost:5050/main", {
+      const res = await fetchWithTimeout("http://localhost:5060/main", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

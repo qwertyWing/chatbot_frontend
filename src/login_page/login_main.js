@@ -18,30 +18,52 @@ export default function LoginPage() {
   return (
     <div
       style={{
-        minHeight: "100svh",          // 모바일 주소창
-        display: "grid",
-        placeItems: "center",
-        background: "#f3f4f6",
-        padding: "16px",
+        minHeight: "100svh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background:
+          "linear-gradient(135deg, #93c5fd 0%, #a5b4fc 50%, #fbcfe8 100%)",
+        padding: "20px",
+        fontFamily: "Pretendard, sans-serif",
       }}
     >
       <div
         style={{
           width: "100%",
-          maxWidth: 384,              // max-w-sm
-          background: "#fff",
+          maxWidth: 400,
+          background: "rgba(255, 255, 255, 0.9)",
+          backdropFilter: "blur(10px)",
           borderRadius: 16,
-          boxShadow: "0 10px 20px rgba(0,0,0,0.06)",
-          padding: 32,
+          boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+          padding: "40px 32px",
+          transition: "transform 0.2s ease",
         }}
       >
-        <h2 style={{ fontSize: 24, fontWeight: 700, textAlign: "center", marginBottom: 24 }}>
+        <h2
+          style={{
+            fontSize: 28,
+            fontWeight: 700,
+            textAlign: "center",
+            marginBottom: 30,
+            color: "#1e3a8a",
+          }}
+        >
           로그인
         </h2>
 
         <form onSubmit={handleLogin}>
-          <div style={{ marginBottom: 16 }}>
-            <label style={{ display: "block", color: "#4b5563", marginBottom: 4 }}>이메일</label>
+          <div style={{ marginBottom: 20 }}>
+            <label
+              style={{
+                display: "block",
+                color: "#374151",
+                marginBottom: 6,
+                fontWeight: 500,
+              }}
+            >
+              이메일
+            </label>
             <input
               type="email"
               value={email}
@@ -49,17 +71,33 @@ export default function LoginPage() {
               placeholder="이메일을 입력하세요"
               required
               style={{
-                width: "100%",
-                border: "1px solid #e5e7eb",
-                borderRadius: 8,
-                padding: "8px 12px",
+                width: "92%",
+                border: "1px solid #d1d5db",
+                borderRadius: 10,
+                padding: "10px 14px",
                 outline: "none",
+                fontSize: 15,
+                transition: "border-color 0.2s, box-shadow 0.2s",
               }}
+              onFocus={(e) =>
+                (e.target.style.boxShadow =
+                  "0 0 0 3px rgba(59,130,246,0.3)")
+              }
+              onBlur={(e) => (e.target.style.boxShadow = "none")}
             />
           </div>
 
-          <div style={{ marginBottom: 24 }}>
-            <label style={{ display: "block", color: "#4b5563", marginBottom: 4 }}>비밀번호</label>
+          <div style={{ marginBottom: 28 }}>
+            <label
+              style={{
+                display: "block",
+                color: "#374151",
+                marginBottom: 6,
+                fontWeight: 500,
+              }}
+            >
+              비밀번호
+            </label>
             <input
               type="password"
               value={password}
@@ -67,12 +105,19 @@ export default function LoginPage() {
               placeholder="비밀번호를 입력하세요"
               required
               style={{
-                width: "100%",
-                border: "1px solid #e5e7eb",
-                borderRadius: 8,
-                padding: "8px 12px",
+                width: "92%",
+                border: "1px solid #d1d5db",
+                borderRadius: 10,
+                padding: "10px 14px",
                 outline: "none",
+                fontSize: 15,
+                transition: "border-color 0.2s, box-shadow 0.2s",
               }}
+              onFocus={(e) =>
+                (e.target.style.boxShadow =
+                  "0 0 0 3px rgba(59,130,246,0.3)")
+              }
+              onBlur={(e) => (e.target.style.boxShadow = "none")}
             />
           </div>
 
@@ -80,22 +125,35 @@ export default function LoginPage() {
             type="submit"
             style={{
               width: "100%",
-              background: "#3b82f6",
+              background: "linear-gradient(90deg, #3b82f6, #6366f1)",
               color: "#fff",
-              padding: "10px 12px",
-              borderRadius: 8,
+              padding: "12px 14px",
+              borderRadius: 10,
               border: "none",
               fontWeight: 600,
+              fontSize: 16,
               cursor: "pointer",
+              transition: "transform 0.2s, opacity 0.2s",
             }}
+            onMouseEnter={(e) => (e.target.style.opacity = "0.9")}
+            onMouseLeave={(e) => (e.target.style.opacity = "1")}
           >
             로그인
           </button>
         </form>
 
-        <p style={{ textAlign: "center", color: "#6b7280", fontSize: 14, marginTop: 16 }}>
+        <p
+          style={{
+            textAlign: "center",
+            color: "#6b7280",
+            fontSize: 14,
+            marginTop: 20,
+          }}
+        >
           계정이 없으신가요?{" "}
-          <Link to="/signup" style={{ color: "#3b82f6" }}>회원가입</Link>
+          <Link to="/signup" style={{ color: "#3b82f6", fontWeight: 500 }}>
+            회원가입
+          </Link>
         </p>
       </div>
     </div>
